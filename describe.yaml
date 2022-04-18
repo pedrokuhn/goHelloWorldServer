@@ -1,0 +1,323 @@
+Name:         harnessci-buildtestandpus-2wbxt93y
+Namespace:    ci-delegate
+Priority:     0
+Node:         gke-pedro-k8s-lab-cluste-default-pool-c1d9b431-c751/10.138.0.60
+Start Time:   Tue, 01 Feb 2022 08:57:05 -0300
+Labels:       accountID=YpUfe9mVQECwIhopss9sVw
+              buildNumber=32
+              orgID=default
+              pipelineExecutionID=66vHiQOeTK6S44cBqMntvQ
+              pipelineID=CI_Pipeline
+              projectID=CItest
+              stageID=Build_Test_and_Push
+Annotations:  <none>
+Status:       Running
+IP:           10.36.0.22
+IPs:
+  IP:  10.36.0.22
+Init Containers:
+  setup-addon:
+    Container ID:  containerd://561cf9821935dbafb20c6adf16aa2da6e0c5fb6c413e5c9bb1267c4612121df3
+    Image:         harness/ci-addon:release-74
+    Image ID:      docker.io/harness/ci-addon@sha256:2820e8f928036b1404afff43b347a61d1a6f71dfe361962065babfc6a92786d4
+    Port:          <none>
+    Host Port:     <none>
+    Command:
+      sh
+      -c
+      --
+    Args:
+      mkdir -p /addon/bin; mkdir -p /addon/tmp; chmod -R 776 /addon/tmp; cp /usr/local/bin/ci-addon-linux-amd64 /addon/bin/ci-addon; chmod +x /addon/bin/ci-addon; cp /usr/local/bin/java-agent.jar /addon/bin/java-agent.jar; chmod +x /addon/bin/java-agent.jar
+    State:          Terminated
+      Reason:       Completed
+      Exit Code:    0
+      Started:      Tue, 01 Feb 2022 08:57:06 -0300
+      Finished:     Tue, 01 Feb 2022 08:57:06 -0300
+    Ready:          True
+    Restart Count:  0
+    Environment:
+      HARNESS_WORKSPACE:  /harness
+    Mounts:
+      /addon from addon (rw)
+      /harness from harness (rw)
+      /var/run/secrets/kubernetes.io/serviceaccount from default-token-bpp6k (ro)
+Containers:
+  lite-engine:
+    Container ID:   containerd://2de4525a97527c7d636d2a746abccad2ec6a0b9ccf3bace4665bb4735f7ac0aa
+    Image:          harness/ci-lite-engine:release-34
+    Image ID:       docker.io/harness/ci-lite-engine@sha256:46ea4985432191f2f07c3b6ded08e2401c1a7827baa8eba5f543a789c61130b6
+    Port:           <none>
+    Host Port:      <none>
+    State:          Running
+      Started:      Tue, 01 Feb 2022 08:57:07 -0300
+    Ready:          True
+    Restart Count:  0
+    Limits:
+      cpu:     900m
+      memory:  1100Mi
+    Requests:
+      cpu:     900m
+      memory:  1100Mi
+    Environment:
+      DELEGATE_SERVICE_ENDPOINT:     delegate-service:8080
+      HARNESS_LOG_PREFIX:            accountId:YpUfe9mVQECwIhopss9sVw/orgId:default/projectId:CItest/pipelineId:CI_Pipeline/runSequence:32/level0:pipeline/level1:stages/level2:Build_Test_and_Push
+      HARNESS_PIPELINE_ID:           CI_Pipeline
+      HARNESS_ACCOUNT_ID:            YpUfe9mVQECwIhopss9sVw
+      HARNESS_PROJECT_ID:            CItest
+      HARNESS_BUILD_ID:              32
+      HARNESS_SECRETS_LIST:          HARNESS_LOG_SERVICE_TOKEN,DRONE_NETRC_PASSWORD,HARNESS_LOG_SERVICE_ENDPOINT,HARNESS_TI_SERVICE_TOKEN,DELEGATE_SERVICE_TOKEN,DRONE_NETRC_USERNAME,HARNESS_TI_SERVICE_ENDPOINT
+      DELEGATE_SERVICE_ID:           delegate-grpc-service
+      HARNESS_STAGE_ID:              Build_Test_and_Push
+      HARNESS_WORKSPACE:             /harness
+      HARNESS_ORG_ID:                default
+      HARNESS_LOG_SERVICE_TOKEN:     <set to the key 'HARNESS_LOG_SERVICE_TOKEN' in secret 'harnessci-buildtestandpus-2wbxt93y-secret'>     Optional: false
+      DRONE_NETRC_PASSWORD:          <set to the key 'DRONE_NETRC_PASSWORD' in secret 'harnessci-buildtestandpus-2wbxt93y-secret'>          Optional: false
+      HARNESS_LOG_SERVICE_ENDPOINT:  <set to the key 'HARNESS_LOG_SERVICE_ENDPOINT' in secret 'harnessci-buildtestandpus-2wbxt93y-secret'>  Optional: false
+      HARNESS_TI_SERVICE_TOKEN:      <set to the key 'HARNESS_TI_SERVICE_TOKEN' in secret 'harnessci-buildtestandpus-2wbxt93y-secret'>      Optional: false
+      DELEGATE_SERVICE_TOKEN:        <set to the key 'DELEGATE_SERVICE_TOKEN' in secret 'harnessci-buildtestandpus-2wbxt93y-secret'>        Optional: false
+      DRONE_NETRC_USERNAME:          <set to the key 'DRONE_NETRC_USERNAME' in secret 'harnessci-buildtestandpus-2wbxt93y-secret'>          Optional: false
+      HARNESS_TI_SERVICE_ENDPOINT:   <set to the key 'HARNESS_TI_SERVICE_ENDPOINT' in secret 'harnessci-buildtestandpus-2wbxt93y-secret'>   Optional: false
+    Mounts:
+      /addon from addon (rw)
+      /harness from harness (rw)
+      /var/run/secrets/kubernetes.io/serviceaccount from default-token-bpp6k (ro)
+  step-1:
+    Container ID:  containerd://5419443c2c03c71e38b38258db855dde2118857fa189f76ae370158116385a00
+    Image:         harness/drone-git:1.0.6-rootless-linux-amd64
+    Image ID:      docker.io/harness/drone-git@sha256:27709a0273a3349899853be31c66971d267ecb1a38896a83ae04d817e282ed5d
+    Port:          20002/TCP
+    Host Port:     0/TCP
+    Command:
+      /addon/bin/ci-addon
+    Args:
+      --port
+      20002
+    State:          Terminated
+      Reason:       Completed
+      Exit Code:    0
+      Started:      Tue, 01 Feb 2022 08:57:07 -0300
+      Finished:     Tue, 01 Feb 2022 08:57:14 -0300
+    Ready:          False
+    Restart Count:  0
+    Limits:
+      cpu:     400m
+      memory:  500Mi
+    Requests:
+      cpu:     10m
+      memory:  10Mi
+    Environment:
+      HARNESS_ACCOUNT_ID:    YpUfe9mVQECwIhopss9sVw
+      DRONE_COMMIT_BRANCH:   main
+      HARNESS_PROJECT_ID:    CItest
+      HARNESS_WORKSPACE:     /harness
+      DRONE_REMOTE_URL:      https://github.com/pedrokuhn/goHelloWorldServer.git
+      HARNESS_LOG_PREFIX:    accountId:YpUfe9mVQECwIhopss9sVw/orgId:default/projectId:CItest/pipelineId:CI_Pipeline/runSequence:32/level0:pipeline/level1:stages/level2:Build_Test_and_Push
+      DRONE_NETRC_MACHINE:   github.com
+      HARNESS_PIPELINE_ID:   CI_Pipeline
+      HARNESS_BUILD_ID:      32
+      HARNESS_SECRETS_LIST:  DRONE_NETRC_PASSWORD,DRONE_NETRC_USERNAME
+      DRONE_BUILD_NUMBER:    32
+      DRONE_COMMIT_SHA:      ca9dd2de7727c5a1b988fecd1a3ce4a631bad321
+      HARNESS_STAGE_ID:      Build_Test_and_Push
+      HARNESS_ORG_ID:        default
+      DRONE_NETRC_PASSWORD:  <set to the key 'DRONE_NETRC_PASSWORD' in secret 'harnessci-buildtestandpus-2wbxt93y-secret'>  Optional: false
+      DRONE_NETRC_USERNAME:  <set to the key 'DRONE_NETRC_USERNAME' in secret 'harnessci-buildtestandpus-2wbxt93y-secret'>  Optional: false
+    Mounts:
+      /addon from addon (rw)
+      /harness from harness (rw)
+      /var/run/secrets/kubernetes.io/serviceaccount from default-token-bpp6k (ro)
+  step-2:
+    Container ID:  containerd://34d78ecff3ec9c7d4978927aee42d0178ea5ba64eacc40bddcba9aedde54af8c
+    Image:         golang:1.15
+    Image ID:      docker.io/library/golang@sha256:ea080cc817b02a946461d42c02891bf750e3916c52f7ea8187bccde8f312b59f
+    Port:          20003/TCP
+    Host Port:     0/TCP
+    Command:
+      /addon/bin/ci-addon
+    Args:
+      --port
+      20003
+    State:          Terminated
+      Reason:       Completed
+      Exit Code:    0
+      Started:      Tue, 01 Feb 2022 08:57:07 -0300
+      Finished:     Tue, 01 Feb 2022 08:58:38 -0300
+    Ready:          False
+    Restart Count:  0
+    Limits:
+      cpu:     400m
+      memory:  500Mi
+    Requests:
+      cpu:     10m
+      memory:  10Mi
+    Environment:
+      HARNESS_ACCOUNT_ID:    YpUfe9mVQECwIhopss9sVw
+      DRONE_COMMIT_BRANCH:   main
+      HARNESS_PROJECT_ID:    CItest
+      TEST_VARIABLE:         
+      HARNESS_WORKSPACE:     /harness
+      DRONE_REMOTE_URL:      https://github.com/pedrokuhn/goHelloWorldServer.git
+      HARNESS_LOG_PREFIX:    accountId:YpUfe9mVQECwIhopss9sVw/orgId:default/projectId:CItest/pipelineId:CI_Pipeline/runSequence:32/level0:pipeline/level1:stages/level2:Build_Test_and_Push
+      DRONE_NETRC_MACHINE:   github.com
+      HARNESS_PIPELINE_ID:   CI_Pipeline
+      HARNESS_BUILD_ID:      32
+      HARNESS_SECRETS_LIST:  DRONE_NETRC_PASSWORD,DRONE_NETRC_USERNAME
+      DRONE_BUILD_NUMBER:    32
+      DRONE_COMMIT_SHA:      ca9dd2de7727c5a1b988fecd1a3ce4a631bad321
+      HARNESS_STAGE_ID:      Build_Test_and_Push
+      HARNESS_ORG_ID:        default
+      DRONE_NETRC_PASSWORD:  <set to the key 'DRONE_NETRC_PASSWORD' in secret 'harnessci-buildtestandpus-2wbxt93y-secret'>  Optional: false
+      DRONE_NETRC_USERNAME:  <set to the key 'DRONE_NETRC_USERNAME' in secret 'harnessci-buildtestandpus-2wbxt93y-secret'>  Optional: false
+    Mounts:
+      /addon from addon (rw)
+      /harness from harness (rw)
+      /var/run/secrets/kubernetes.io/serviceaccount from default-token-bpp6k (ro)
+  step-3:
+    Container ID:  containerd://f57a7421b7a3e5988950fc6758cc3bb3df69c5aee255c6567303b0820f6213ed
+    Image:         plugins/kaniko:1.3.1
+    Image ID:      docker.io/plugins/kaniko@sha256:eba6500e470fa90579e39d88eadc4af7c1c95dddadbbf5c9a6833a26025c774d
+    Port:          20004/TCP
+    Host Port:     0/TCP
+    Command:
+      /addon/bin/ci-addon
+    Args:
+      --port
+      20004
+    State:          Terminated
+      Reason:       Completed
+      Exit Code:    0
+      Started:      Tue, 01 Feb 2022 08:57:07 -0300
+      Finished:     Tue, 01 Feb 2022 08:58:48 -0300
+    Ready:          False
+    Restart Count:  0
+    Limits:
+      cpu:     400m
+      memory:  500Mi
+    Requests:
+      cpu:     10m
+      memory:  10Mi
+    Environment:
+      HARNESS_ACCOUNT_ID:    YpUfe9mVQECwIhopss9sVw
+      DRONE_COMMIT_BRANCH:   main
+      HARNESS_PROJECT_ID:    CItest
+      PLUGIN_REPO:           pedrokuhnmaster/ciquickstart
+      HARNESS_WORKSPACE:     /harness
+      PLUGIN_SNAPSHOT_MODE:  redo
+      PLUGIN_ARTIFACT_FILE:  /addon/tmp/.plugin/artifact
+      DRONE_REMOTE_URL:      https://github.com/pedrokuhn/goHelloWorldServer.git
+      HARNESS_LOG_PREFIX:    accountId:YpUfe9mVQECwIhopss9sVw/orgId:default/projectId:CItest/pipelineId:CI_Pipeline/runSequence:32/level0:pipeline/level1:stages/level2:Build_Test_and_Push
+      PLUGIN_TAGS:           32
+      DRONE_NETRC_MACHINE:   github.com
+      HARNESS_PIPELINE_ID:   CI_Pipeline
+      HARNESS_BUILD_ID:      32
+      HARNESS_SECRETS_LIST:  DRONE_NETRC_PASSWORD,PLUGIN_REGISTRY,PLUGIN_USERNAME,PLUGIN_PASSWORD,DRONE_NETRC_USERNAME
+      DRONE_BUILD_NUMBER:    32
+      DRONE_COMMIT_SHA:      ca9dd2de7727c5a1b988fecd1a3ce4a631bad321
+      HARNESS_STAGE_ID:      Build_Test_and_Push
+      HARNESS_ORG_ID:        default
+      DRONE_NETRC_PASSWORD:  <set to the key 'DRONE_NETRC_PASSWORD' in secret 'harnessci-buildtestandpus-2wbxt93y-secret'>              Optional: false
+      PLUGIN_REGISTRY:       <set to the key 'PLUGIN_REGISTRYDocker_Quickstart' in secret 'harnessci-buildtestandpus-2wbxt93y-secret'>  Optional: false
+      PLUGIN_USERNAME:       <set to the key 'PLUGIN_USERNAMEDocker_Quickstart' in secret 'harnessci-buildtestandpus-2wbxt93y-secret'>  Optional: false
+      PLUGIN_PASSWORD:       <set to the key 'PLUGIN_PASSWORDDocker_Quickstart' in secret 'harnessci-buildtestandpus-2wbxt93y-secret'>  Optional: false
+      DRONE_NETRC_USERNAME:  <set to the key 'DRONE_NETRC_USERNAME' in secret 'harnessci-buildtestandpus-2wbxt93y-secret'>              Optional: false
+    Mounts:
+      /addon from addon (rw)
+      /harness from harness (rw)
+      /var/run/secrets/kubernetes.io/serviceaccount from default-token-bpp6k (ro)
+  step-4:
+    Container ID:  containerd://12e6c0267d53037f0a240be15a7fb68c63060826b9c5b3023cd659ee18cabc33
+    Image:         plugins/kaniko-ecr:1.3.1
+    Image ID:      docker.io/plugins/kaniko-ecr@sha256:a2e923660613a3e0888f64ee4d8b21fe0fd430cc7c8461b2b7ced7e722786e2b
+    Port:          20005/TCP
+    Host Port:     0/TCP
+    Command:
+      /addon/bin/ci-addon
+    Args:
+      --port
+      20005
+    State:          Terminated
+      Reason:       Completed
+      Exit Code:    0
+      Started:      Tue, 01 Feb 2022 08:57:08 -0300
+      Finished:     Tue, 01 Feb 2022 08:58:46 -0300
+    Ready:          False
+    Restart Count:  0
+    Limits:
+      cpu:     400m
+      memory:  500Mi
+    Requests:
+      cpu:     10m
+      memory:  10Mi
+    Environment:
+      HARNESS_ACCOUNT_ID:    YpUfe9mVQECwIhopss9sVw
+      DRONE_COMMIT_BRANCH:   main
+      PLUGIN_REGISTRY:       915632791698.dkr.ecr.us-east-2.amazonaws.com
+      HARNESS_PROJECT_ID:    CItest
+      PLUGIN_REPO:           test2
+      HARNESS_WORKSPACE:     /harness
+      PLUGIN_SNAPSHOT_MODE:  redo
+      PLUGIN_ARTIFACT_FILE:  /addon/tmp/.plugin/artifact
+      DRONE_REMOTE_URL:      https://github.com/pedrokuhn/goHelloWorldServer.git
+      HARNESS_LOG_PREFIX:    accountId:YpUfe9mVQECwIhopss9sVw/orgId:default/projectId:CItest/pipelineId:CI_Pipeline/runSequence:32/level0:pipeline/level1:stages/level2:Build_Test_and_Push
+      PLUGIN_TAGS:           test
+      DRONE_NETRC_MACHINE:   github.com
+      HARNESS_PIPELINE_ID:   CI_Pipeline
+      HARNESS_BUILD_ID:      32
+      HARNESS_SECRETS_LIST:  DRONE_NETRC_PASSWORD,PLUGIN_ACCESS_KEY,PLUGIN_SECRET_KEY,DRONE_NETRC_USERNAME
+      DRONE_BUILD_NUMBER:    32
+      DRONE_COMMIT_SHA:      ca9dd2de7727c5a1b988fecd1a3ce4a631bad321
+      HARNESS_STAGE_ID:      Build_Test_and_Push
+      HARNESS_ORG_ID:        default
+      DRONE_NETRC_PASSWORD:  <set to the key 'DRONE_NETRC_PASSWORD' in secret 'harnessci-buildtestandpus-2wbxt93y-secret'>            Optional: false
+      PLUGIN_ACCESS_KEY:     <set to the key 'PLUGIN_ACCESS_KEYAWS_Connector' in secret 'harnessci-buildtestandpus-2wbxt93y-secret'>  Optional: false
+      PLUGIN_SECRET_KEY:     <set to the key 'PLUGIN_SECRET_KEYAWS_Connector' in secret 'harnessci-buildtestandpus-2wbxt93y-secret'>  Optional: false
+      DRONE_NETRC_USERNAME:  <set to the key 'DRONE_NETRC_USERNAME' in secret 'harnessci-buildtestandpus-2wbxt93y-secret'>            Optional: false
+    Mounts:
+      /addon from addon (rw)
+      /harness from harness (rw)
+      /var/run/secrets/kubernetes.io/serviceaccount from default-token-bpp6k (ro)
+Conditions:
+  Type              Status
+  Initialized       True 
+  Ready             False 
+  ContainersReady   False 
+  PodScheduled      True 
+Volumes:
+  addon:
+    Type:       EmptyDir (a temporary directory that shares a pod's lifetime)
+    Medium:     
+    SizeLimit:  <unset>
+  harness:
+    Type:       EmptyDir (a temporary directory that shares a pod's lifetime)
+    Medium:     
+    SizeLimit:  <unset>
+  default-token-bpp6k:
+    Type:        Secret (a volume populated by a Secret)
+    SecretName:  default-token-bpp6k
+    Optional:    false
+QoS Class:       Burstable
+Node-Selectors:  <none>
+Tolerations:     node.kubernetes.io/not-ready:NoExecute op=Exists for 300s
+                 node.kubernetes.io/unreachable:NoExecute op=Exists for 300s
+Events:
+  Type    Reason     Age   From               Message
+  ----    ------     ----  ----               -------
+  Normal  Scheduled  105s  default-scheduler  Successfully assigned ci-delegate/harnessci-buildtestandpus-2wbxt93y to gke-pedro-k8s-lab-cluste-default-pool-c1d9b431-c751
+  Normal  Pulled     104s  kubelet            Container image "harness/ci-addon:release-74" already present on machine
+  Normal  Created    104s  kubelet            Created container setup-addon
+  Normal  Started    104s  kubelet            Started container setup-addon
+  Normal  Started    103s  kubelet            Started container step-1
+  Normal  Created    103s  kubelet            Created container lite-engine
+  Normal  Started    103s  kubelet            Started container lite-engine
+  Normal  Pulled     103s  kubelet            Container image "harness/drone-git:1.0.6-rootless-linux-amd64" already present on machine
+  Normal  Created    103s  kubelet            Created container step-1
+  Normal  Pulled     103s  kubelet            Container image "harness/ci-lite-engine:release-34" already present on machine
+  Normal  Pulled     103s  kubelet            Container image "golang:1.15" already present on machine
+  Normal  Created    103s  kubelet            Created container step-2
+  Normal  Started    103s  kubelet            Started container step-2
+  Normal  Pulled     103s  kubelet            Container image "plugins/kaniko:1.3.1" already present on machine
+  Normal  Created    103s  kubelet            Created container step-3
+  Normal  Started    103s  kubelet            Started container step-3
+  Normal  Pulled     103s  kubelet            Container image "plugins/kaniko-ecr:1.3.1" already present on machine
+  Normal  Created    103s  kubelet            Created container step-4
+  Normal  Started    102s  kubelet            Started container step-4
