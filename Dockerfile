@@ -8,6 +8,7 @@ LABEL test="<+stage.variables.test>"
 #
 #   CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build -a -tags netgo
 #
+RUN echo "<+stage.variables.test>"
 ADD go-sample-app /bin/
 # Command to run the executable
 ENTRYPOINT ["/bin/go-sample-app"]
